@@ -1,0 +1,142 @@
+[
+  {
+    "id": "TKT-001",
+    "channel": "Teams",
+    "created_at": "2026-01-15T09:30:00Z",
+    "message": "Broker has advised that the customer's email address is incorrect. Current email is minimus@noemail.com and needs to be amended to maximus@noemail.co.uk.",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-002",
+    "channel": "Email",
+    "created_at": "2026-01-18T10:00:00Z",
+    "message": "Hi Ops, we have a new starter joining on Monday. They will need system access, credit searches, business searches and property data access.",
+    "sla_hours": 12
+  },
+  {
+    "id": "TKT-003",
+    "channel": "Email",
+    "created_at": "2026-01-18T12:15:00Z",
+    "message": "What information about application ABC001 is currently on the system?",
+    "sla_hours": 48
+  },
+  {
+    "id": "TKT-004",
+    "channel": "Teams",
+    "created_at": "2026-01-17T08:45:00Z",
+    "message": "Broker enquiry asking for a price for their case. Can someone explain how to use the pricing matrix?",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-005",
+    "channel": "Email",
+    "created_at": "2026-01-16T15:20:00Z",
+    "message": "I need to introduce a template letter into the system. The template should auto-fill from the customer account. Can you help?",
+    "sla_hours": 48
+  },
+  {
+    "id": "TKT-006",
+    "channel": "Teams",
+    "created_at": "2026-01-14T11:00:00Z",
+    "message": "Where can I find the latest lending criteria?",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-007",
+    "channel": "Email",
+    "created_at": "2026-01-18T14:00:00Z",
+    "message": "How do I use the system funding calculator?",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-008",
+    "channel": "Email",
+    "created_at": "2026-01-15T16:40:00Z",
+    "message": "Customer email is wrong, needs changing to correct one.",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-009",
+    "channel": "Teams",
+    "created_at": "2026-01-13T09:10:00Z",
+    "message": "New starter request but not sure what access they need yet.",
+    "sla_hours": 12
+  },
+  {
+    "id": "TKT-010",
+    "channel": "Email",
+    "created_at": "2026-01-17T13:30:00Z",
+    "message": "Please can you provide information held for application XYZ999 including status and documents received.",
+    "sla_hours": 48
+  },
+  {
+    "id": "TKT-011",
+    "channel": "Teams",
+    "created_at": "2026-01-12T10:00:00Z",
+    "message": "Broker asking for pricing but no specific enquiry provided.",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-012",
+    "channel": "Email",
+    "created_at": "2026-01-18T09:00:00Z",
+    "message": "Where is the most up to date lending criteria document stored?",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-013",
+    "channel": "Teams",
+    "created_at": "2026-01-11T16:00:00Z",
+    "message": "Funding calculator appears incorrect when I input values. How should it be used?",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-014",
+    "channel": "Email",
+    "created_at": "2026-01-18T15:45:00Z",
+    "message": "Customer for application ABC002 has requested an email update to newaddress@email.com.",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-015",
+    "channel": "Teams",
+    "created_at": "2026-01-10T09:00:00Z",
+    "message": "Can you confirm what documents we currently hold for application ABC003?",
+    "sla_hours": 48
+  },
+  {
+    "id": "TKT-016",
+    "channel": "Email",
+    "created_at": "2026-01-18T11:30:00Z",
+    "message": "Please explain how brokers should calculate pricing using the system.",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-017",
+    "channel": "Teams",
+    "created_at": "2026-01-14T14:10:00Z",
+    "message": "Request to add a new standard customer letter template.",
+    "sla_hours": 48
+  },
+  {
+    "id": "TKT-018",
+    "channel": "Email",
+    "created_at": "2026-01-09T10:30:00Z",
+    "message": "What information do we have on application DEF123?",
+    "sla_hours": 48
+  },
+  {
+    "id": "TKT-019",
+    "channel": "Teams",
+    "created_at": "2026-01-18T08:00:00Z",
+    "message": "Email change required. Current email unknown, new email is updated@email.co.uk.",
+    "sla_hours": 24
+  },
+  {
+    "id": "TKT-020",
+    "channel": "Email",
+    "created_at": "2026-01-16T17:00:00Z",
+    "message": "Hi, could you help me locate the latest version of the lending criteria?",
+    "sla_hours": 24
+  }
+]
