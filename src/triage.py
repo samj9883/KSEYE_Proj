@@ -1,6 +1,9 @@
 import json
 from datetime import datetime, timedelta, timezone
 
+import re
+from typing import Tuple
+
 
 with open("data/tickets.json", "r", encoding="utf-8") as file:
     tickets = json.load(file)
@@ -44,6 +47,44 @@ def print_all_overdue():
             print(f"  Message: {ticket.get('message')}")
             print("-" * 40)
 
-print(print_all_overdue())
+#print(print_all_overdue())
 
 # --------------------------------------------------------------------------------------------------------
+
+
+# Ordered rules: first match wins (most specific first)
+_CATEGORY_RULES: list[tuple[str, re.Pattern]] = [
+    ("EMAIL_CHANGE", re.compile(r"\b(email|e-mail)\b.*\b(incorrect|wrong|amend|update|change)\b", re.I)),
+    ("NEW_STARTER_ACCESS", re.compile(r"\bnew starter\b|\bonboard(ing)?\b|\bneeds system access\b", re.I)),
+    ("PRICING_MATRIX_HELP", re.compile(r"\bpricing matrix\b|\bprice for (their )?enquiry\b|\bprice (a )?case\b", re.I)),
+    ("TEMPLATE_LETTER", re.compile(r"\btemplate letter\b|\bletter template\b|\bfill in the blanks\b|\bauto-?fill\b", re.I)),
+    ("APPLICATION_INFO", re.compile(r"\bapplication\b\s*[A-Z]{3}\d+\b|\bwhat information\b.*\bapplication\b", re.I)),
+    ("LENDING_CRITERIA", re.compile(r"\blending criteria\b|\blatest criteria\b", re.I)),
+    ("FUNDING_CALCULATOR", re.compile(r"\bfunding calculator\b|\buse the.*calculator\b", re.I)),
+]
+
+def categorise_ticket(message: str) -> str:
+    """
+    Categorise a ticket based on simple, explainable keyword rules.
+
+    Args:
+        message (str): The raw ticket message text.
+
+    Returns:
+        str: Category label such as EMAIL_CHANGE, APPLICATION_INFO, etc.
+    """
+    if not message or not message.strip():
+        return "GENERAL"
+
+    for category, pattern in _CATEGORY_RULES:
+        if pattern.search(message):
+            return category
+
+    return "GENERAL"
+
+def print_categories():
+    for ticket in tickets:
+       print(f"Ticket {ticket.get('id')} category: {categorise_ticket(ticket.get('message'))}")
+    
+    
+print(print_categories())
