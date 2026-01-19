@@ -40,13 +40,19 @@ def print_categories(tickets: List[Dict[str, Any]], filter_value: str) -> None:
     Otherwise prints only tickets matching the category.
     """
     filter_value = filter_value.upper()
+    print("-" * 40)
 
     for ticket in tickets:
         ticket_id = ticket.get("id", "UNKNOWN")
         message = ticket.get("message", "")
+        time = ticket.get("created_at", "")
 
         category = categorise_ticket(message)
 
         if filter_value == "ALL" or category == filter_value:
             print(f"Ticket {ticket_id} category: {category}")
-            print(f"Message: {message}")            
+            print(f"Received At: {time}")
+            print(f"Message: {message}")
+            print("-" * 40)
+            
+            
