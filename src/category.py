@@ -12,6 +12,13 @@ _CATEGORY_RULES: List[Tuple[str, re.Pattern]] = [
     ("FUNDING_CALCULATOR", re.compile(r"\bfunding calculator\b|\buse the.*calculator\b", re.I)),
 ]
 
+def available_categories() -> List[str]:
+    """
+    Returns the list of available category filters including ALL.
+    """
+    cats = [name for name, _ in _CATEGORY_RULES]
+    return ["ALL"] + cats + ["GENERAL"]
+
 
 def categorise_ticket(message: str) -> str:
     """
@@ -42,3 +49,4 @@ def print_categories(tickets: List[Dict[str, Any]], filter_value: str) -> None:
 
         if filter_value == "ALL" or category == filter_value:
             print(f"Ticket {ticket_id} category: {category}")
+            print(f"Message: {message}")            
