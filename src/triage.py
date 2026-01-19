@@ -82,9 +82,19 @@ def categorise_ticket(message: str) -> str:
 
     return "GENERAL"
 
-def print_categories():
-    for ticket in tickets:
-       print(f"Ticket {ticket.get('id')} category: {categorise_ticket(ticket.get('message'))}")
+
+def print_categories(filter: str):
+
+    if filter == "ALL":
+        for ticket in tickets:
+            print(f"Ticket {ticket.get('id')} category: {categorise_ticket(ticket.get('message'))}")
+
+    else:
+         for ticket in tickets:
+            if categorise_ticket(ticket.get('message')) == filter:
+                print(f"Ticket {ticket.get('id')} category: {categorise_ticket(ticket.get('message'))}")
+
+
     
     
-print(print_categories())
+print_categories("EMAIL_CHANGE")
