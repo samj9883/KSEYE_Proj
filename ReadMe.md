@@ -1,23 +1,56 @@
 # Ops Triage Automation
 
-Project folder for part 2 of the KSEYE assessment
+Part 2 submission for the KSEYE Junior Software Developer assessment  
+(Option A: Workflow Automation Script).
 
-Part 2: Practical Development Task  
-Build a simple automation or utility script that demonstrates clean coding, logic, and maintainability. 
+## Overview
+This project provides a small, maintainable Python utility that processes a list of operational requests (“tickets”) stored in a JSON file. It demonstrates basic workflow automation using clear, explainable rules and a simple command-line interface (CLI).
 
-Choose one of the following options: 
+The tool supports:
+- Flagging **overdue** tickets based on SLA hours
+- Categorising tickets using keyword-based rules
+- Filtering and searching tickets by category via the CLI
 
-​
+## Project Structure
+```
+data/
+tickets.json # Example ticket dataset
+src/
+main.py # CLI entry point
+overdue.py # SLA / overdue logic
+category.py # Categorisation + filtering logic
+```
 
-Option A: Workflow Automation Script 
+## How It Works
+- Tickets are loaded from `data/tickets.json`
+- Overdue tickets are identified using:
+  - `created_at` timestamp
+  - `sla_hours` threshold
+- Ticket messages are categorised using simple keyword rules  
+  (e.g. `EMAIL_CHANGE`, `NEW_STARTER_ACCESS`)
+- The CLI allows a user to choose between:
+  1) Timeline search (overdue tickets)
+  2) Category search (including `ALL`)
 
-Create a small script that: 
+## Running the Script
+From the project root:
 
-Takes a list of records (e.g. cases, tickets, or users) 
-Applies basic rules (e.g. status checks, validation, categorisation) 
-Outputs a structured result (e.g. JSON, CSV, console output) 
-Example use cases: 
+```bash
+python src/main.py
+```
 
-Flag overdue cases 
-Categorise incoming requests 
-Validate data completeness 
+## Design Decisions
+Rule-based categorisation was chosen over ML/AI for transparency and maintainability
+
+Logic is split into modules to reduce coupling and improve readability
+
+The script is read-only and does not modify ticket data
+
+## Possible Extensions
+Output results to CSV or JSON report files
+
+Add validation rules (missing fields, invalid timestamps)
+
+Add unit tests for categorisation and overdue logic
+
+Replace the CLI with a basic web interface
