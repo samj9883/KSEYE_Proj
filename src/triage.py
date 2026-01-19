@@ -26,21 +26,24 @@ def is_overdue(created_at: datetime, sla_hours: int, now: datetime) -> bool:
     """
     return now > created_at + timedelta(hours=sla_hours)
 
+def print_all_overdue():
 
-for ticket in tickets:
-    created_at_str = ticket.get("created_at")
-    sla_hours = ticket.get("sla_hours", 0)
+    for ticket in tickets:
+        created_at_str = ticket.get("created_at")
+        sla_hours = ticket.get("sla_hours", 0)
 
-    # Convert ISO string to datetime (handle Z)
-    created_at = datetime.fromisoformat(
-        created_at_str.replace("Z", "+00:00")
-    )
+        # Convert ISO string to datetime (handle Z)
+        created_at = datetime.fromisoformat(
+            created_at_str.replace("Z", "+00:00")
+        )
 
-    if is_overdue(created_at, sla_hours, now):
-        print(f"OVERDUE: {ticket.get('id')}")
-        print(f"  Created at: {created_at}")
-        print(f"  SLA hours: {sla_hours}")
-        print(f"  Message: {ticket.get('message')}")
-        print("-" * 40)
+        if is_overdue(created_at, sla_hours, now):
+            print(f"OVERDUE: {ticket.get('id')}")
+            print(f"  Created at: {created_at}")
+            print(f"  SLA hours: {sla_hours}")
+            print(f"  Message: {ticket.get('message')}")
+            print("-" * 40)
+
+print(print_all_overdue())
 
 # --------------------------------------------------------------------------------------------------------
